@@ -29,13 +29,13 @@ class CustomButton : MaterialButton {
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(
         context, attributeSet, defStyleAttr
     ) {
-        initializeToolbarAttributes(context, attributeSet)
+        initializeToolbarAttributes(attributeSet)
         initView()
         val parentView = parent as? ViewGroup
         parentView?.addView(this)
     }
 
-    private fun initializeToolbarAttributes(context: Context, attrs: AttributeSet?) {
+    private fun initializeToolbarAttributes(attrs: AttributeSet?) {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomButton)
             buttonType = when (typedArray.getInt(R.styleable.CustomButton_customButtonType, 0)) {
